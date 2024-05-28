@@ -1,4 +1,6 @@
 ﻿
+using System.Runtime.CompilerServices;
+
 namespace MathGameConsole.Models
 {
     internal static class Helper
@@ -6,6 +8,7 @@ namespace MathGameConsole.Models
         internal static List<Game> games = new List<Game>();
         internal static void GetGames()
         {
+
             Console.Clear();
             Console.WriteLine("Game history");
             Console.WriteLine("--------------------------------------------");
@@ -20,7 +23,7 @@ namespace MathGameConsole.Models
 
         }
 
-       internal static int[] GetDivisionNumbers()
+        internal static int[] GetDivisionNumbers()
         {
             var random = new Random();
             var firstNumber = random.Next(0, 99);
@@ -42,16 +45,42 @@ namespace MathGameConsole.Models
 
         }
 
-       internal static void AddToHistory(int gameScore, string gameType)
+        internal static void AddToHistory(int gameScore, GameType gameType)
         {
             games.Add(new Game
             {
                 Date = DateTime.Now,
                 Score = gameScore,
                 Type = gameType
-            
+
             });
 
+        }
+
+        internal static string? ValidateResult( string result)
+        {
+            while (string.IsNullOrEmpty(result) || !Int32.TryParse(result, out _))
+            {
+                Console.WriteLine("Your answer needs to be a number... its math. Try again.");
+                result = Console.ReadLine();
+
+            }
+            return result;
+        }
+
+        internal static string GetName()
+        {
+            Console.WriteLine("Please enter your name:");
+            var name = Console.ReadLine();
+
+            while (string.IsNullOrEmpty(name)) 
+            {
+                Console.WriteLine("What is your name?");
+                name = Console.ReadLine();
+            
+            }
+
+            return name;
         }
     }
 }

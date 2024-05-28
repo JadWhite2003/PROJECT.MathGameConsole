@@ -1,10 +1,10 @@
 ﻿
 
-namespace MathGameConsole
+namespace MathGameConsole.Models
 {
     internal class GameEngine
     {
-       internal void AdditionGame()
+        internal void AdditionGame()
         {
             Console.WriteLine("Additiion game selected");
             var random = new Random();
@@ -20,6 +20,9 @@ namespace MathGameConsole
 
                 Console.WriteLine($"{firstNumber} + {secondNumber}");
                 var result = Console.ReadLine();
+
+                result = Helper.ValidateResult(result);
+
                 if (int.Parse(result) == firstNumber + secondNumber)
                 {
                     Console.WriteLine("Cooorrecct!! Press enter for the next question");
@@ -38,11 +41,11 @@ namespace MathGameConsole
                 }
             }
 
-            Helper.AddToHistory(score, "Addition");
+            Helper.AddToHistory(score, GameType.Addition);
 
 
         }
-       internal void SubtractionGame()
+        internal void SubtractionGame()
         {
             Console.WriteLine("Subtraction game selected");
             var random = new Random();
@@ -58,6 +61,10 @@ namespace MathGameConsole
 
                 Console.WriteLine($"{firstNumber} - {secondNumber}");
                 var result = Console.ReadLine();
+
+                result = Helper.ValidateResult(result);
+
+
                 if (int.Parse(result) == firstNumber - secondNumber)
                 {
                     Console.WriteLine("Cooorrecct!! Press enter for the next question");
@@ -76,10 +83,10 @@ namespace MathGameConsole
                 }
             }
 
-            Helper.AddToHistory(score, "Subtraction");
+            Helper.AddToHistory(score, GameType.Subtraction);
 
         }
-       internal void MultiplicationGame()
+        internal void MultiplicationGame()
         {
             Console.WriteLine("Multiplication game selected");
             var random = new Random();
@@ -95,6 +102,10 @@ namespace MathGameConsole
 
                 Console.WriteLine($"{firstNumber} x {secondNumber}");
                 var result = Console.ReadLine();
+
+                result = Helper.ValidateResult(result);
+
+
                 if (int.Parse(result) == firstNumber * secondNumber)
                 {
                     Console.WriteLine("Cooorrecct!! Press enter for the next question");
@@ -113,10 +124,10 @@ namespace MathGameConsole
                 }
             }
 
-            Helper.AddToHistory(score, "Multiplication");
+            Helper.AddToHistory(score, GameType.Multiplication);
 
         }
-      internal  void DivisionGame()
+        internal void DivisionGame()
         {
             Console.WriteLine("Division game selected");
             int score = 0;
@@ -130,6 +141,9 @@ namespace MathGameConsole
 
                 Console.WriteLine($"{firstNumber} / {secondNumber}");
                 var result = Console.ReadLine();
+
+                result = Helper.ValidateResult(result);
+
 
                 if (int.Parse(result) == firstNumber / secondNumber)
                 {
@@ -149,7 +163,7 @@ namespace MathGameConsole
                 }
             }
 
-            Helper.AddToHistory(score, "Division");
+            Helper.AddToHistory(score, GameType.Division);
 
         }
 

@@ -1,5 +1,5 @@
 ﻿
-namespace MathGameConsole
+namespace MathGameConsole.Models
 {
     internal class Menu
     {
@@ -7,7 +7,10 @@ namespace MathGameConsole
       internal void ShowMenu(string name, DateTime date)
         {
             Console.WriteLine("______________________________________________________________");
+            Console.Clear();
             Console.WriteLine($"Hello, {name.ToUpper()} the time is {date.TimeOfDay} Get ready to be MATHED!!!");
+            Console.WriteLine("Press any key to proceed");
+            Console.ReadLine();
 
             var isGameOn = true;
 

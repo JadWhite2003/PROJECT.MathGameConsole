@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+namespace MathGameConsole.Models;
 
-namespace MathGameConsole.Models
+internal class Game
 {
-    internal class Game
-    {    
-        public DateTime Date { get; set; }
-        public int Score { get; set; }
+    internal DateTime Date { get; set; }
+    internal int Score { get; set; }
 
-        public string Type { get; set; }
-    }
+    internal GameType Type { get; set; }
 }
+internal enum GameType
+{
+    Addition,
+    Subtraction,
+    Multiplication,
+    Division
+}
+
+
+
+
